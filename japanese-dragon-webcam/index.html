@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07111d" />
+    <title>Ryū — Hand Controlled Dragon</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="scene" aria-label="Interactive 3D dragon scene"></canvas>
+      <div class="vignette"></div>
+      <header class="topbar">
+        <div class="brand-mark">龍</div>
+        <div>
+          <div class="eyebrow">MYTHIC CREATURE LAB</div>
+          <h1>RYŪ <span>/ THE SKY SERPENT</span></h1>
+        </div>
+        <div class="top-status"><span class="status-dot"></span><span id="status">CAMERA OFFLINE</span></div>
+      </header>
+      <section class="intro" id="intro">
+        <div class="eyebrow">A LIVING LEGEND</div>
+        <h2>Command the<br><em>ancient sky.</em></h2>
+        <p>Raise your hand. Guide the dragon. Unleash the flame.</p>
+        <button id="start">ACTIVATE CAMERA <span>↗</span></button>
+        <small>Camera access is used locally in your browser for hand tracking.</small>
+      </section>
+      <aside class="hud">
+        <div class="hud-label">FLIGHT SYSTEM <span class="hud-live">● LIVE</span></div>
+        <div class="hud-main" id="gesture">AWAITING PILOT</div>
+        <div class="hud-sub" id="hint">Activate the camera to begin</div>
+        <div class="meter"><div id="meter-fill"></div></div>
+        <div class="meter-caption"><span>FLAME CHARGE</span><span id="charge">00%</span></div>
+        <div class="divider"></div>
+        <div class="mini-row"><span>DRAGON</span><b id="dragon-state">DORMANT</b></div>
+        <div class="mini-row"><span>HAND TRACKING</span><b id="tracking">STANDBY</b></div>
+        <div class="gesture-legend">
+          <div><span class="gesture-icon">✋</span><span><b>OPEN PALM</b><small>Fly & steer</small></span></div>
+          <div><span class="gesture-icon">✊</span><span><b>FIST</b><small>Charge fire</small></span></div>
+          <div><span class="gesture-icon">✌</span><span><b>V SIGN</b><small>Breathe fire</small></span></div>
+        </div>
+      </aside>
+      <div class="bottom-note"><span class="crosshair">＋</span> MOVE YOUR HAND THROUGH THE AIR <span class="bottom-line"></span></div>
+      <div class="camera-card" id="camera-card">
+        <div class="camera-heading"><span>CAMERA FEED</span><span id="camera-state">OFF</span></div>
+        <div class="camera-window">
+          <video id="webcam" autoplay playsinline muted></video>
+          <canvas id="hand-overlay"></canvas>
+          <div class="camera-placeholder" id="camera-placeholder">Camera preview appears here</div>
+        </div>
+        <button class="camera-toggle" id="stop" disabled>STOP CAMERA</button>
+      </div>
+      <div class="error-toast" id="error" role="status"></div>
+      <footer>RYŪ INTERACTIVE · THREE.JS + MEDIAPIPE <span>BEST EXPERIENCED IN CHROME</span></footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
